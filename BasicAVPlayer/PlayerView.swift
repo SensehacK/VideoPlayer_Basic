@@ -7,9 +7,11 @@
 
 import UIKit
 import AVFoundation
+import Combine
 public class PlayerView: UIView {
     
     private var player: AVPlayer?
+    private var anyCancellables = Set<AnyCancellable>()
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -34,4 +36,19 @@ public class PlayerView: UIView {
         player?.play()
         
     }
+    public func subscribeToCurrentVideoStatus() {
+        
+        player?
+            .publisher(for: \.timeControlStatus)
+            .sink(receiveValue: { status in
+                if case .playing = status {
+                    print("Playing")
+                }
+                if case .paused = status {
+                    print("Paused")
+                }
+            })
+            .store(in: &anyCancellables)
+    }
+    
 }

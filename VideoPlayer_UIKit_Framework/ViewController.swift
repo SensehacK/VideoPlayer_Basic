@@ -7,8 +7,10 @@
 
 import UIKit
 import AVKit
+import BasicAVPlayer
 
 class ViewController: UIViewController {
+    var playerView: PlayerView?
     
     
     override func viewDidLoad() {
@@ -23,6 +25,14 @@ class ViewController: UIViewController {
         
         let height = view.frame.width * 9 / 16
         let videoPlayerFrame = CGRect(x: 0, y: 40, width: view.frame.width, height: height)
+        playerView = PlayerView(frame: videoPlayerFrame, url: Constants.videoURL)
+        if let playerView {
+            containerView.addSubview(playerView)
+        }
+
+        view.addSubview(containerView)
+        containerView.frame = view.frame
+    }
     }
     
 

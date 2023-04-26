@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addPlayerView()
+        displayPlayTimeStamps()
         displayCurrentVideoStatus()
     }
 
@@ -34,6 +35,12 @@ class ViewController: UIViewController {
         view.addSubview(containerView)
         containerView.frame = view.frame
     }
+    
+    func displayPlayTimeStamps() {
+        print("Current Playback Seconds")
+        if let playerView {
+            playerView.printCurrentVideoPlayheadPosition()
+        }
     }
     
     func displayCurrentVideoStatus() {

@@ -36,6 +36,17 @@ public class PlayerView: UIView {
         player?.play()
         
     }
+    public func printCurrentVideoPlayheadPosition(timeValue: Int64 = 1, timeScale: Int32 = 2) {
+
+        let interval = CMTime(value: timeValue, timescale: timeScale)
+        player?.addPeriodicTimeObserver(forInterval: interval,
+                                        queue: DispatchQueue.main,
+                                        using: { (progressTime) in
+            let seconds = CMTimeGetSeconds(progressTime)
+            let formattedSeconds = String(format: "%.2f", seconds)
+                print("\nSeconds: \(formattedSeconds)")
+        })
+    }
     public func subscribeToCurrentVideoStatus() {
         
         player?

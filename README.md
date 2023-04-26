@@ -5,6 +5,10 @@ The Video will auto play.
 
 There are two functions exposed with respective documentation in their own framework files.
 
+## Demo
+
+![simulator](https://raw.githubusercontent.com/SensehacK/VideoPlayer_Basic/58638b1d24cc1a886358de75b0c6cf2e7a09a16d/simulator.gif)
+
 ## Config
 
 Minimum deployment target shifted to 15.0 due to a bug on iOS 16.4

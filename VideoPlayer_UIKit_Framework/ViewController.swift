@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addPlayerView()
+        displayCurrentVideoStatus()
     }
 
     func addPlayerView() {
@@ -35,6 +36,12 @@ class ViewController: UIViewController {
     }
     }
     
+    func displayCurrentVideoStatus() {
+        print("Current video status")
+        if let playerView {
+            playerView.subscribeToCurrentVideoStatus()
+        }
+    }
 
 }
 

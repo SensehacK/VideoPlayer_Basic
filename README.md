@@ -5,6 +5,8 @@ The Video will auto play.
 
 There are two functions exposed with respective documentation in their own framework files.
 
+[Documentation Link](https://sensehack.github.io/VideoPlayer_Basic/documentation/basicavplayer/)
+
 ## Demo
 
 ![simulator](https://raw.githubusercontent.com/SensehacK/VideoPlayer_Basic/58638b1d24cc1a886358de75b0c6cf2e7a09a16d/simulator.gif)
@@ -16,11 +18,20 @@ Minimum deployment target shifted to 15.0 due to a bug on iOS 16.4
 
 ## Swift DocC command line
 
+### Local Build
 ```swift
 xcodebuild docbuild \
     -scheme BasicAVPlayer \
     -destination 'name=iPhone 14 Pro' \
     -derivedDataPath ./build
+```
+
+### Github Pages build
+
+```swift
+xcodebuild docbuild -scheme BasicAVPlayer \
+-destination generic/platform=iOS \
+OTHER_DOCC_FLAGS="--transform-for-static-hosting --output-path docs --hosting-base-path VideoPlayer_Basic"
 ```
 
 ## Quirks
